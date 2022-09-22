@@ -1,0 +1,48 @@
+
+
+class Room:
+    def get_name(self):
+        return 42
+
+
+class Street:
+    def get_room(self) -> Room:
+        return Room()
+
+
+class City:
+    def get_street(self) -> Street:
+        return Street()
+
+    def population(self):
+        return 100500
+
+
+class Country:
+    def get_city(self) -> City:
+        return City()
+
+
+class Planet:
+    def get_contry(self) -> Country:
+        return Country()
+
+
+class Person:
+    def __init__(self, room_num: int, city_population: int):
+        self.room_num = room_num
+        self.city_population = city_population
+
+    def get_person_room(self):
+        return self.room_num
+
+    def get_city_population(self):
+        return self.city_population
+
+
+if __name__ == "__main__":
+    room = Room()
+    city = City()
+    person = Person(room_num=room.get_name(), city_population=city.population())
+    print(person.get_person_room())
+    print(person.get_city_population())
